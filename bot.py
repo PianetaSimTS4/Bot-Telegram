@@ -5,7 +5,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, Con
 import telegram.error
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_IDS = [684167003, 559764759, 1872215746, 6178093087]  # Sostituisci con gli ID degli amministratori
+ADMIN_IDS = list(map(int, os.getenv("ADMIN_IDS", "").split(",")))
 
 # File per memorizzare i messaggi
 STORAGE_FILE = "messaggi.json"
