@@ -156,7 +156,7 @@ async def photo_post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await post(update, context)
 
 # Avvia il bot
-app = ApplicationBuilder().token(os.getenv("BOT_TOKEN")).build()
+app = ApplicationBuilder().token("8176594744:AAFixNaaeZFqKrkjIqQ3YdNHVvEZQupiVmQ").build()
 app.add_handler(CommandHandler("post", post))
 app.add_handler(CommandHandler("modifica", modifica))
 app.add_handler(CommandHandler("lista", lista))
