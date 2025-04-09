@@ -10,12 +10,21 @@ ADMIN_IDS = [684167003, 559764759, 1872215746]  # Sostituisci con gli ID degli a
 # File per memorizzare i messaggi
 STORAGE_FILE = "messaggi.json"
 
-# Carica messaggi salvati se esistono
+# Carica messaggi salvati se esistono, altrimenti crea un file vuoto
 if os.path.exists(STORAGE_FILE):
-    with open(STORAGE_FILE, "r") as f:
-        posted_messages = json.load(f)
+    try:
+        with open(STORAGE_FILE, "r") as f:
+            posted_messages = json.load(f)
+    except json.JSONDecodeError:
+        # Se il file è vuoto o corrotto, lo creiamo come vuoto
+        posted_messages = {}
+        with open(STORAGE_FILE, "w") as f:
+            json.dump(posted_messages, f)
 else:
+    # Se il file non esiste, lo creiamo come vuoto
     posted_messages = {}
+    with open(STORAGE_FILE, "w") as f:
+        json.dump(posted_messages, f)
 
 # Funzione per salvare i messaggi su file
 def salva_messaggi():
