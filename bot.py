@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import telegram.error
 
-BOT_TOKEN = "8176594744:AAFixNaaeZFqKrkjIqQ3YdNHVvEZQupiVmQ"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_IDS = [684167003, 559764759, 1872215746, 6178093087]  # Sostituisci con gli ID degli amministratori
 
 # File per memorizzare i messaggi
@@ -156,7 +156,7 @@ async def photo_post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await post(update, context)
 
 # Avvia il bot
-app = ApplicationBuilder().token("8176594744:AAFixNaaeZFqKrkjIqQ3YdNHVvEZQupiVmQ").build()
+app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("post", post))
 app.add_handler(CommandHandler("modifica", modifica))
 app.add_handler(CommandHandler("lista", lista))
