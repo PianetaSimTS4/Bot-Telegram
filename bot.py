@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import telegram.error
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")  # Qui prende il token dalla variabile di ambiente
+BOT_TOKEN = "8176594744:AAFixNaaeZFqKrkjIqQ3YdNHVvEZQupiVmQ"
 ADMIN_IDS = [684167003, 559764759, 1872215746]  # Sostituisci con gli ID degli amministratori
 
 # File per memorizzare i messaggi
