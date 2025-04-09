@@ -125,8 +125,8 @@ async def modifica(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text(f"❌ Errore nella modifica: {e}")
 
-# Comando /lista per vedere tutti i messaggi
-async def lista(update: Update, context: ContextTypes.DEFAULT_TYPE):
+# Comando /elenco per vedere tutti i messaggi
+async def elenco(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if user_id not in ADMIN_IDS:
         await update.message.reply_text("❌ Non sei autorizzato.")
@@ -159,6 +159,6 @@ async def photo_post(update: Update, context: ContextTypes.DEFAULT_TYPE):
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("post", post))
 app.add_handler(CommandHandler("modifica", modifica))
-app.add_handler(CommandHandler("lista", lista))
+app.add_handler(CommandHandler("elenco", elenco))
 app.add_handler(MessageHandler(filters.PHOTO & filters.CaptionRegex("^/post"), photo_post))
 app.run_polling()
